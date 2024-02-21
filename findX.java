@@ -1,8 +1,11 @@
 import java.util.Map;
 import static java.util.Map.entry;
 
+// test class for searchFunc
 public class findX
 {
+    // example string to integer mapping. "a", "b", etc. can be replaced with any string.
+    // in this example, "a" will be treated as the lowest value, followed by "b", then "c", etc.
     private static Map<String, Integer> letToNumMap = Map.ofEntries
         (
             entry("a", 1),
@@ -35,22 +38,22 @@ public class findX
     
     public static void main(String[] args)
     {
-        String find = "x";
-        String[] array = {"a", "b", "c", "x", "y"};
+        int num = 1;
+        int[] arguments = {1, 2, 3, 4, 7, 9};
         
         String test = "catalytic";
         String[] arr = {"cat", "catastrophe", "cattle", "catz"};
         
-        int num = 1;
-        int[] arguments = {1, 2, 3, 4, 7, 9};
-        
-        int varPos = searchFunc.sortedArraySearch(array, find, letToNumMap);
-        System.out.println("The variable 'find' is position " + varPos + " of our array.");
+        String find = "x";
+        String[] array = {"a", "b", "c", "x", "y"};
+
+        int numPos = searchFunc.sortedArraySearch(arguments, num);
+        System.out.println("The integer 'num' is position " + numPos + " of the array 'arguments'.");
         
         int stringPos = searchFunc.sortedArraySearch(arr, test);
-        System.out.println("The string 'test' is position " + stringPos + " of our array.");
+        System.out.println("The string 'test' is position " + stringPos + " of the array 'arr'.");
         
-        int numPos = searchFunc.sortedArraySearch(arguments, num);
-        System.out.println("The integer 'num' is position " + numPos + " of our array.");
+        int varPos = searchFunc.sortedArraySearch(array, find, letToNumMap);
+        System.out.println("The variable 'find' is position " + varPos + " of the array 'array'.");
     }
 }
