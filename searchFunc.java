@@ -5,12 +5,22 @@ public class searchFunc
 {
     public static int sortedArraySearch(String[] array, String target, Map<String, Integer> map)
     {
+        if (!map.containsKey(target))
+        {
+            return -1;
+        }
+        
         int current = (array.length - 1) / 2;
         int modifier = current / 2;
         ArrayList<Integer> tested = new ArrayList<Integer>();
         
         while (!target.equals(array[current]))
         {
+            if (!map.containsKey(array[current]))
+            {
+                return -1;
+            }
+            
             boolean overshot = map.get(array[current]) > map.get(target);
             if (overshot)
             {
