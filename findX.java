@@ -44,7 +44,6 @@ public class findX
         int num = 1;
         int[] arguments = {1, 2, 3, 4, 7, 9};
         
-        // throws an error the values of find and arr are not defined in letToNumMap
         int varPos = searchFunc.sortedArraySearch(array, find, letToNumMap);
         System.out.println("The variable 'find' is position " + varPos + " of our array.");
         
