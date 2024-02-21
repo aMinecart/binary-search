@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class searchFunc
 {
-    public static int sortedArraySearch(String[] array, String target, Map<String, String> map)
+    public static int sortedArraySearch(String[] array, String target, Map<String, Integer> map)
     {
         int current = (array.length - 1) / 2;
         int modifier = current / 2;
@@ -11,7 +11,7 @@ public class searchFunc
         
         while (!target.equals(array[current]))
         {
-            boolean overshot = Integer.parseInt(map.get(array[current])) > Integer.parseInt(map.get(target));
+            boolean overshot = map.get(array[current]) > map.get(target);
             if (overshot)
             {
                 current -= modifier;
