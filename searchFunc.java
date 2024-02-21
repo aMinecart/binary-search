@@ -2,12 +2,14 @@ import java.util.Map;
 import java.util.ArrayList;
 
 // creates a static class to hold the sortedArraySearch function, which finds the index of the
-// requested integer "target" in the given integer array "array" using a binary search algorithm
+// requested integer "target" in the integer array "array" (sorted least to greatest) using a binary search algorithm
 //
 // sorterdArraySearch has two overloads - one for searching a String array sorted lexicographically,
 // and one for searching a String array sorted according to a map (see findX.java for an example)
+//
+// WARNING: sorterdArraySearch does not work on unsorted arrays
 
-public static class searchFunc
+public class searchFunc
 {
     public static int sortedArraySearch(int[] array, int target)
     {
@@ -79,17 +81,8 @@ public static class searchFunc
         
         while (!target.equals(array[current]))
         {
-            boolean overshot = array[current].compareTo(target) > 0;
+            current = array[current].compareTo(target) > 0 ? current - modifier : current + modifier;
             
-            if (overshot)
-            {
-                current -= modifier;
-            }
-            else
-            {
-                current += modifier;
-            }
-                
             modifier = Math.max(modifier / 2, 1);
             
             if (current < 0 || current >= array.length || tested.contains(current))
@@ -125,18 +118,9 @@ public static class searchFunc
                 return -1;
             }
             
-            boolean overshot = map.get(array[current]) > map.get(target);
-            if (overshot)
-            {
-                current -= modifier;
-            }
-            else
-            {
-                current += modifier;
-            }
+            current = map.get(array[current]) > map.get(target) ? current - modifier : current + modifier;
             
             modifier = Math.max(modifier / 2, 1);
-            
             
             if (current < 0 || current >= array.length || tested.contains(current))
             {
