@@ -97,8 +97,11 @@ public class searchFunc
     }
 
     // the same as sortedArraySearch(int[] array, int target), but uses map.get()
-    // to order strings based off of their assigned integer 
-    public static int sortedArraySearch(String[] array, String target, Map<String, Integer> map)
+    // to order any array of objects based off of their assigned integer in map
+    // Note: array must be sorted least-to-greatest based on map's order in order to produce correct results
+    // (in other words, the integer mapped to any element of array must be less than the integers 
+    // mapped to any following elements)
+    public static <T> int sortedArraySearch(T[] array, T target, Map<T, Integer> map)
     {
         // if target has no value mapping in map, abort the search
         if (!map.containsKey(target))
