@@ -185,7 +185,7 @@ public class searchFunc
 
     // works similarly to sortedArraySearch(String[] array, String target), allowing for any array of 
     // a Comparable class to be searched using compareTo()
-    public static <N extends Comparable<N>> int sortedArraySearch(N[] array, N target)
+    public static <T extends Comparable<T>> int sortedArraySearch(T[] array, T target)
     {
         int current = (array.length - 1) / 2;
         int modifier = current / 2;
