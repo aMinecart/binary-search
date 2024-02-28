@@ -183,7 +183,7 @@ public class searchFunc
         return current;
     }
 
-    // functions similarly to sortedArraySearch(String[] array, String target), allowing for any array of 
+    // works similarly to sortedArraySearch(String[] array, String target), allowing for any array of 
     // a Comparable class to be searched using compareTo()
     public static <N extends Comparable<N>> int sortedArraySearch(N[] array, N target)
     {
