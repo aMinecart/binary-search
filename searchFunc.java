@@ -19,7 +19,7 @@ public class searchFunc
         int modifier = current / 2; // the number to add or subtract from current
         ArrayList<Integer> tested = new ArrayList<>(); // list containing the indicies of all previously tested values
         
-        while (target != array[current])
+        while (target.compareTo(array[current]) != 0)
         {
             // current is in the middle of the unchecked section of the array
             // 
