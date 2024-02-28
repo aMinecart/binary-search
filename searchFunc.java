@@ -13,7 +13,7 @@ WARNING: arrays inputted into sortedArraySearch must be sorted from least to gre
 
 public class searchFunc
 {
-    public static <N extends Number> int sortedArraySearch(N[] array, N target)
+    public static <N extends Number & Comparable<N>> int sortedArraySearch(N[] array, N target)
     {
         int current = (array.length - 1) / 2; // the index of the value in array currently being tested
         int modifier = current / 2; // the number to add or subtract from current
@@ -42,7 +42,7 @@ public class searchFunc
             */
             
             // more concise
-            current = array[current] > target ? current - modifier : current + modifier;
+            current = array[current].compareTo(target) > 0 ? current - modifier : current + modifier;
             
             // modifier is halved to match current
             // if modifier is equal to 0, current never changes and an infinite loop occurs
@@ -79,7 +79,7 @@ public class searchFunc
     {
         int current = (array.length - 1) / 2;
         int modifier = Math.max(current / 2, 1);
-        ArrayList<Integer> tested = new ArrayList<Integer>();
+        ArrayList<Integer> tested = new ArrayList<>();
         
         while (!target.equals(array[current]))
         {
@@ -113,7 +113,7 @@ public class searchFunc
         
         int current = (array.length - 1) / 2;
         int modifier = current / 2;
-        ArrayList<Integer> tested = new ArrayList<Integer>();
+        ArrayList<Integer> tested = new ArrayList<>();
         
         while (!target.equals(array[current]))
         {
