@@ -70,7 +70,7 @@ public class findX
     
     public static void main(String[] args)
     {
-        int num = 1;
+        Integer num = 1;
         int[] arguments = {1, 2, 3, 4, 7, 9};
         
         int numPos = searchFunc.sortedArraySearch(arguments, num);
