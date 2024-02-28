@@ -1,21 +1,23 @@
 import java.util.Map;
 import java.util.ArrayList;
 
-// creates a static class to hold the sortedArraySearch function, which finds the index of the
-// requested integer "target" in the integer array "array" (sorted least to greatest) using a binary search algorithm
-//
-// sorterdArraySearch has two overloads - one for searching a String array sorted lexicographically,
-// and one for searching a String array sorted according to a map (see findX.java for an example)
-//
-// WARNING: sorterdArraySearch does not work on unsorted arrays
+/*
+creates a static class to hold the sortedArraySearch function, which finds the index of the
+number "target" in the array of the same subtype "array" using a binary search algorithm
+
+sorterdArraySearch has two overloads - one for searching a String array sorted lexicographically,
+and one for searching a generic array sorted according to a map (see findX.java for examples)
+
+WARNING: arrays inputted into sortedArraySearch must be sorted from least to greatest
+*/
 
 public class searchFunc
 {
-    public static int sortedArraySearch(int[] array, int target)
+    public static <N extends Number> int sortedArraySearch(N[] array, N target)
     {
         int current = (array.length - 1) / 2; // the index of the value in array currently being tested
         int modifier = current / 2; // the number to add or subtract from current
-        ArrayList<Integer> tested = new ArrayList<Integer>(); // list containing all values previously tested
+        ArrayList<Integer> tested = new ArrayList<>(); // list containing the indicies of all previously tested values
         
         while (target != array[current])
         {
@@ -71,8 +73,8 @@ public class searchFunc
         return current;
     }
     
-    // the same as sortedArraySearch(int[] array, int target), but uses .compareTo()
-    // to determine the lexicographic position of strings
+    // the same as sortedArraySearch(N[] array, N target), but uses .compareTo()
+    // to lexicographically determine the position of strings in an array, rather than numbers
     public static int sortedArraySearch(String[] array, String target)
     {
         int current = (array.length - 1) / 2;
@@ -96,8 +98,8 @@ public class searchFunc
         return current;
     }
 
-    // the same as sortedArraySearch(int[] array, int target), but uses map.get()
-    // to order any array of objects based off of their assigned integer in map
+    // the same as sortedArraySearch(N[] array, N target), but uses map.get()
+    // to search any array of objects based off of their assigned integer in map
     // Note: array must be sorted least-to-greatest based on map's order in order to produce correct results
     // (in other words, the integer mapped to any element of array must be less than the integers 
     // mapped to any following elements)
