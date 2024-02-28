@@ -191,7 +191,7 @@ public class searchFunc
         int modifier = current / 2;
         ArrayList<Integer> tested = new ArrayList<>();
         
-        // use compareTo() to safely check for equality target and array[current]
+        // use compareTo() to safely check for equality between target and array[current]
         while (target.compareTo(array[current]) != 0)
         {
             // if the boolean expression evaluates to true, array[current] comes after target
@@ -238,6 +238,7 @@ public class searchFunc
                 return -1;
             }
             
+            // if array[current]'s value in map is greater than target's value, array[current] comes after target
             current = map.get(array[current]) > map.get(target) ? current - modifier : current + modifier;
             
             modifier = Math.max(modifier / 2, 1);
