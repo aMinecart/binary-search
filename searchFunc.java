@@ -157,8 +157,8 @@ public class searchFunc
         return current;
     }
     
-    // works similarly to sortedArraySearch(int[] array, int target), but uses compareTo()
-    // to lexicographically determine the position of strings instead of numbers in an array
+    // works similarly to sortedArraySearch(int[] array, int target), but searches an arrray of
+    // strings using compareTo() to lexicographically determine their position
     public static int sortedArraySearch(String[] array, String target)
     {
         int current = (array.length - 1) / 2;
