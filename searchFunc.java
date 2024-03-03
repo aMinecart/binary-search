@@ -11,7 +11,7 @@ sorterdArraySearch has overloads for:
 - searching a double array sorted numerically
 - searching a long array sorted numerically
 - searching a String array sorted lexicographically
-- searching a generic array extending Number and Comparable sorted numerically
+- searching a generic array extending Comparable using compareTo()
 - searching a generic array sorted according to a map
 
 see findX.java for examples
@@ -157,8 +157,8 @@ public class searchFunc
         return current;
     }
     
-    // works similarly as sortedArraySearch(int[] array, int target), but uses compareTo()
-    // to lexicographically determine the position of strings in an array, rather than numbers
+    // works similarly to sortedArraySearch(int[] array, int target), but searches an arrray of
+    // strings using compareTo() to lexicographically determine their position
     public static int sortedArraySearch(String[] array, String target)
     {
         int current = (array.length - 1) / 2;
@@ -183,9 +183,9 @@ public class searchFunc
         return current;
     }
 
-    // functions similarly to sortedArraySearch(String[] array, String target), allowing for any array of 
-    // a Comparable Number class to be searched using compareTo()
-    public static <N extends Number & Comparable<N>> int sortedArraySearch(N[] array, N target)
+    // works similarly to sortedArraySearch(String[] array, String target), allowing for any array of 
+    // a Comparable class to be searched using compareTo()
+    public static <T extends Comparable<T>> int sortedArraySearch(T[] array, T target)
     {
         int current = (array.length - 1) / 2;
         int modifier = current / 2;
