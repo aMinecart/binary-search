@@ -32,7 +32,7 @@ public class searchFunc
             /*
             current is in the middle of the unchecked section of the array
             
-            if the array[current]'s value is greater than target, than current is too high
+            if array[current]'s value is greater than target, than current is too high
             shift current to the middle of the section with lower values
             
             otherwise, current is too low
@@ -55,7 +55,7 @@ public class searchFunc
             current = array[current] > target ? current - modifier : current + modifier;
             
             /*
-            modifier is halved to match current
+            modifier is halved to prevent current from going out of bounds
             if modifier is equal to 0, current never changes and an infinite loop occurs
             keep modifier at a minimum of 1 to prevent this
             */
