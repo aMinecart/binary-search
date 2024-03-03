@@ -32,7 +32,7 @@ public class searchFunc
             /*
             current is in the middle of the unchecked section of the array
             
-            if the current's value is greater than target, than current is too high
+            if the array[current]'s value is greater than target, than current is too high
             shift current to the middle of the section with lower values
             
             otherwise, current is too low
@@ -77,7 +77,7 @@ public class searchFunc
                 return -1;
             }
             
-            // add current to list of tested values
+            // add current to list of tested indices
             tested.add(current);
         }
         
@@ -232,7 +232,7 @@ public class searchFunc
         
         while (!target.equals(array[current]))
         {
-            // if current's value has no value mapping in map, abort the search
+            // if array[current]'s value has no value mapping in map, abort the search
             if (!map.containsKey(array[current]))
             {
                 return -1;
