@@ -37,7 +37,7 @@ public class findX
             entry("z", 26)
         );
     
-    // identical to letToNumMap, but with "a" as the highest value, "b" as the second lowest, etc.
+    // identical to letToNumMap, but with "a" as the highest value, "b" as the second highest, etc.
     private static Map<String, Integer> reverseLetToNumMap = Map.ofEntries
         (
             entry("a", 26),
